@@ -65,7 +65,11 @@ class _LoginPageState extends State<LoginPage> {
               alignment:Alignment.bottomCenter,
               child: AnimatedContainer(
                   duration: Duration(milliseconds: 1000),
+<<<<<<< HEAD
                 curve: Curves.fastLinearToSlowEaseIn,
+=======
+                curve: Curves.easeInOutCirc,
+>>>>>>> 0259716 (first commit)
                 height: height,
                 decoration: BoxDecoration(
                   color: cont1,
@@ -100,7 +104,11 @@ class _LoginPageState extends State<LoginPage> {
 
                             },
                           ),
+<<<<<<< HEAD
                           CustomBtn(text: "Create new ccount",outlineBtn: true,onPressed: (){
+=======
+                          CustomBtn(text: "Create new account",outlineBtn: true,onPressed: (){
+>>>>>>> 0259716 (first commit)
                             setState(() {
                               cont1 = Colors.white70;
                               cont2 = Constants.blueColor;
@@ -118,7 +126,11 @@ class _LoginPageState extends State<LoginPage> {
             alignment:Alignment.bottomCenter,
             child: AnimatedContainer(
                 duration: Duration(milliseconds: 1000),
+<<<<<<< HEAD
                 curve: Curves.fastOutSlowIn,
+=======
+                curve: Curves.easeInOutCirc,
+>>>>>>> 0259716 (first commit)
                 height: height2,
                 decoration: BoxDecoration(
                     color: cont2,

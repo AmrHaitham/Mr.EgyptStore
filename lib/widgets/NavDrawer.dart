@@ -3,6 +3,10 @@ import 'package:flutter/painting.dart';
 import 'package:mr_egypt_store/Constants.dart';
 import 'package:mr_egypt_store/screens/HomeScreen.dart';
 import 'package:mr_egypt_store/services/UserInfo.dart';
+import 'package:mr_egypt_store/widgets/pageDraweWidget.dart';
+import 'package:provider/provider.dart';
+import 'package:mr_egypt_store/providers/pageState.dart';
+
 class NavDrawer extends StatefulWidget {
   @override
   _NavDrawerState createState() => _NavDrawerState();
@@ -10,8 +14,6 @@ class NavDrawer extends StatefulWidget {
 
 class _NavDrawerState extends State<NavDrawer> {
   UserInfo _userInfo = UserInfo();
-
-  int state = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -36,98 +38,45 @@ class _NavDrawerState extends State<NavDrawer> {
                   },
                 ),
               ),
-              AnimatedContainer(
-                duration: Duration(milliseconds: 5000),
-                curve: Curves.fastLinearToSlowEaseIn,
-                margin: EdgeInsets.only(bottom: 10 , top: 10,right: 30),
-                decoration: BoxDecoration(
-                  color:(state == 0)?Constants.blueColor:Colors.white,
-                  borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20))
-                ),
-                child: ListTile(
-                    leading: Icon(Icons.home_filled,size: 30,color: (state == 0)?Colors.white:Colors.black,),
-                    title: Text('Home',style: (state == 0)?Constants.boldHeading:Constants.blackBoldHeading,),
-                    onTap: (){
-                      // Navigator.pushReplacement(context,
-                      // MaterialPageRoute(
-                      // builder: (context)=>Home()));
-                      setState(() {
-                        state = 0;
-                      });
-                    },
-                  ),
+              PageDrawerWidget(
+                icon: Icons.home_filled,
+                name: "Home",
+                num: 0,
+                onTab: (){
+
+                },
               ),
-              AnimatedContainer(
-                duration: Duration(milliseconds: 5000),
-                curve: Curves.fastLinearToSlowEaseIn,
-                margin: EdgeInsets.only(bottom: 10 , top: 10,right: 30),
-                decoration: BoxDecoration(
-                    color:(state == 1)?Constants.blueColor:Colors.white,
-                    borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20))
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.list_alt,size: 30,color: (state == 1)?Colors.white:Colors.black),
-                  title: Text('Your Orders',style: (state == 1)?Constants.boldHeading:Constants.blackBoldHeading,),
-                  onTap: (){
-                   setState(() {
-                     state = 1;
-                   });
-                  },
-                ),
+              PageDrawerWidget(
+                icon: Icons.list_alt,
+                name: 'Your Orders',
+                num: 1,
+                onTab: (){
+
+                },
               ),
-              AnimatedContainer(
-                duration: Duration(milliseconds: 5000),
-                curve: Curves.fastLinearToSlowEaseIn,
-                margin: EdgeInsets.only(bottom: 10 , top: 10,right: 30),
-                decoration: BoxDecoration(
-                    color:(state == 2)?Constants.blueColor:Colors.white,
-                    borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20))
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.local_offer_outlined,size: 30,color: (state == 2)?Colors.white:Colors.black),
-                  title: Text('Offers',style: (state == 2)?Constants.boldHeading:Constants.blackBoldHeading,),
-                  onTap: (){
-                    setState(() {
-                      state = 2;
-                    });
-                  },
-                ),
+              PageDrawerWidget(
+                icon: Icons.local_offer_outlined,
+                name: 'Offers',
+                num: 2,
+                onTab: (){
+
+                },
               ),
-              AnimatedContainer(
-                duration: Duration(milliseconds: 5000),
-                curve: Curves.fastLinearToSlowEaseIn,
-                margin: EdgeInsets.only(bottom: 10 , top: 10,right: 30),
-                decoration: BoxDecoration(
-                    color:(state == 3)?Constants.blueColor:Colors.white,
-                    borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20))
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.favorite,size: 30,color: (state == 3)?Colors.white:Colors.black),
-                  title: Text('Favorites',style: (state == 3)?Constants.boldHeading:Constants.blackBoldHeading,),
-                  onTap: (){
-                    setState(() {
-                      state = 3;
-                    });
-                  },
-                ),
+              PageDrawerWidget(
+                icon: Icons.favorite,
+                name: 'Favorites',
+                num: 3,
+                onTab: (){
+
+                },
               ),
-              AnimatedContainer(
-                duration: Duration(milliseconds: 5000),
-                curve: Curves.fastLinearToSlowEaseIn,
-                margin: EdgeInsets.only(bottom: 10 , top: 10,right: 30),
-                decoration: BoxDecoration(
-                    color:(state == 4)?Constants.blueColor:Colors.white,
-                    borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20))
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.border_color,size: 30,color: (state == 4)?Colors.white:Colors.black),
-                  title: Text('About',style: (state == 4)?Constants.boldHeading:Constants.blackBoldHeading,),
-                  onTap: (){
-                    setState(() {
-                      state = 4;
-                    });
-                  },
-                ),
+              PageDrawerWidget(
+                icon: Icons.border_color,
+                name: 'About',
+                num: 4,
+                onTab: (){
+
+                },
               ),
               if(_userInfo.ifAnonymous()!=true)
                 Container(
@@ -138,7 +87,7 @@ class _NavDrawerState extends State<NavDrawer> {
                   ),
                   child: TextButton(
                       onPressed: (){
-
+                       
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

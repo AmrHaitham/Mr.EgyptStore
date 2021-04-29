@@ -74,7 +74,7 @@ class _ProductDetailState extends State<ProductDetail> {
             children: [
               Container(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height*0.40,
+                height: MediaQuery.of(context).size.height*0.45,
                 decoration: BoxDecoration(
                   color: Constants.blueColor,
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30))
@@ -103,7 +103,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       )).toList(),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 10,left: 20,right: 20),
+                      margin: EdgeInsets.only(top: 20,left: 20,right: 20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.white70
@@ -136,7 +136,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 ),
               ),
                     Container(
-                      margin: EdgeInsets.only(left: 10,right: 10),
+                      margin: EdgeInsets.all(10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
